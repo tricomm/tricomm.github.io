@@ -25,7 +25,9 @@ mathjax: true
   ```
   git pull origin master//把远程仓库origin的master抓下来
   ```
+
 ## 2.在`_posts`文件夹下新建`博客名.md`文件作为新的blog
+
 ## 3.`博客名.md`中头部标注格式
     ---                                   //头部标注分隔符
     layout: post                          //对应_layouts文件夹内容
