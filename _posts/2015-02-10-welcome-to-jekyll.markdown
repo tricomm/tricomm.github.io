@@ -4,42 +4,41 @@ title:  "hello jekyll!"
 date:   2015-02-10 15:14:54
 categories: jekyll
 tags: jekyll
-excerpt: 当年创建 jekyll 时默认的一篇文章，没什么意义，我也一直没删除，留个纪念吧。
+excerpt: 使用jekyll写blog的方法步骤
 mathjax: true
 ---
+## 1⃣️ 同步github远程仓库与本地
+* 本地有修改则commit到本地master然后push到git  
+  例：新建了一个文件`new.txt` 
+  ```
+  cd 上层文件夹 
+  git add new.txt           //将new.txt添加到仓库
+  git commit -m备注内容      //将更新提交到仓库并备注
+  git push -u origin master //将本地master分支推送到愿从仓库
+                            //origin 的master分支
+                            //-u 参数是设置origin为默认主机
+  git push                  //已有默认主机则推送到默认主机
+  git push origin master    //一般情况
+  ```
+* github远
+* 程仓库有改动
+  ```
+  git pull origin master//把远程仓库origin的master抓下来
+  ```
+    
+## 2⃣️ 在`_posts`文件夹下新建`博客名.md`文件作为新的blog
+## 3⃣️ `博客名.md`中头部标注格式
+    ---                                   //头部标注分隔符
+    layout: post                          //对应_layouts文件夹内容
+    title:  "hello jekyll! "
+    date:   2015-02-10 11:40:18 +0800
+    categories: jekyll                //内容分类显示在主页及博客缩略图
+    tags: jekyll 端口 markdown         //可有多个标签用空格隔开
+    author: Haoyang Gao                //(可选)
+    mathjax: true                      //(数学)
+    ---
+
+头部格式设置完毕后会显示为:![](https://raw.githubusercontent.com/tricomm/ImageForBlog/master/2019/1%E6%9C%88/9%E6%97%A5/postheadinhome.png)
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
-
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-```ruby
-def print_hi(name)
- puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-```
-
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
-
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
-
-Block Mathjax 
-
-$$
-f(x) = ax + b
-$$
-
-Inline Mathjax $a \neq b$
-
-
-```cpp
-#include <iostream>
-using namespace std;
-int a=3
-```
-# 柳子璇小同学你好呀
+## 4⃣️ 以markdown语法写博客内容
+## 5⃣️ 与远程仓库同步
