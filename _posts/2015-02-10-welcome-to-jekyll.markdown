@@ -16,7 +16,7 @@ Jekyll also offers powerful support for code snippets:
 
 ```ruby
 def print_hi(name)
-  puts "Hi, #{name}"
+ puts "Hi, #{name}"
 end
 print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
@@ -36,3 +36,10 @@ $$
 
 Inline Mathjax $a \neq b$
 
+
+```cpp
+#include <iostream>
+using namespace std;
+int a=3
+```
+# 柳子璇小同学你好呀
