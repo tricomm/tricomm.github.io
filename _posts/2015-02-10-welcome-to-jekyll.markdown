@@ -7,7 +7,7 @@ tags: jekyll git
 excerpt: 使用jekyll写blog的方法步骤.
 mathjax: true
 ---
-## 1⃣️ 同步github远程仓库与本地
+## 1.同步github远程仓库与本地
 * 本地有修改则commit到本地master然后push到git  
   例：新建了一个文件`new.txt` 
   ```
@@ -25,8 +25,8 @@ mathjax: true
   ```
   git pull origin master//把远程仓库origin的master抓下来
   ```
-## 2⃣️ 在`_posts`文件夹下新建`博客名.md`文件作为新的blog
-## 3⃣️ `博客名.md`中头部标注格式
+## 2.在`_posts`文件夹下新建`博客名.md`文件作为新的blog
+## 3.`博客名.md`中头部标注格式
     ---                                   //头部标注分隔符
     layout: post                          //对应_layouts文件夹内容
     title:  "hello jekyll! "
@@ -39,5 +39,5 @@ mathjax: true
 
 头部格式设置完毕后会显示为:![](https://raw.githubusercontent.com/tricomm/ImageForBlog/master/2019/1%E6%9C%88/9%E6%97%A5/postheadinhome.png)
 
-## 4⃣️ 以markdown语法写博客内容
-## 5⃣️ 与远程仓库同步
+## 4.以markdown语法写博客内容
+## 5.与远程仓库同步
