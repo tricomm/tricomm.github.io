@@ -1,12 +1,13 @@
 ---
 layout: post
-title:  "使用hekyll+github写博客步骤"
-date:   2019-01-09 15:14:54
+title:  "使用hekyll+github写博客步骤 "
+date:   2019-01-09 15:14:54 +0800
 categories: jekyll
 tags: jekyll git 
 excerpt: 使用jekyll写blog的方法步骤.
 mathjax: true
 ---
+
 ## 1.同步github远程仓库与本地
 * 本地有修改则commit到本地master然后push到git  
   例：新建了一个文件`new.txt` 
