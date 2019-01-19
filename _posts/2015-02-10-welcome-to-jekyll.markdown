@@ -27,8 +27,8 @@ tags: jekyll git
   git pull origin master//把远程仓库origin的master抓下来
   ```
 
-## 2.在`_posts`文件夹下新建`博客名.md`文件作为新的blog
-
+## 2.在`_posts`文件夹下新建`xxxx-xx-xx-English-name.md`文件作为新的blog
+* 命名规范极其重要限时时间用-隔开然后是英文名字.md
 ## 3.`博客名.md`中头部标注格式
     ---                                   //头部标注分隔符
     layout: post                          //对应_layouts文件夹内容
