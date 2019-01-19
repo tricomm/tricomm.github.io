@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "hello jekyll!"
+title:  "使用hekyll+github写博客步骤"
 date:   2019-01-09 15:14:54
 categories: jekyll
 tags: jekyll git 
@@ -39,7 +39,7 @@ mathjax: true
     mathjax: true                      //(数学)
     ---
 
-头部格式设置完毕后会显示为:![](https://raw.githubusercontent.com/tricomm/ImageForBlog/master/2019/1%E6%9C%88/9%E6%97%A5/postheadinhome.png)
+头部格式设置完毕后会显示为:![](https://raw.githubusercontent.com/tricomm/ImageForBlog/master/2019/01/09/postheadinhome.png)
 
 ## 4.以markdown语法写博客内容
 ## 5.与远程仓库同步
