@@ -1,10 +1,12 @@
 ---
 layout: post
-title:  "使用hekyll+github写博客步骤 "
-date:   2019-01-9 15:14:54
+title:  "使用hekyll+github写博客步骤"
+date:   2019-01-9 14:06:05
 categories: jekyll
-tags: jekyll git 
+tags: jekyll git
 ---
+* content
+{:toc}
 
 ## 1.同步github远程仓库与本地
 * 本地有修改则commit到本地master然后push到git  
