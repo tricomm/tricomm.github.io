@@ -15,6 +15,12 @@ tags: ROS
 * `pwd` 当前路径
 * `echo` `[变量/字符串]`输出内容
 * `cat [文件]`输出文件内容 
+* `cp [复制文件] [目标文件夹]` 复制文件
+* `alias 别名="代替名"` 设置别名
+
+    `alias`查看所有别名
+    <br>`unalias 别名`去除别名 
+* `mkdir [目录名]` 新建目录
 ## 设备相关指令
 * **`lsblk`** 查看磁盘信息,可以看到已挂载设备
     
@@ -42,3 +48,4 @@ tags: ROS
 
     所有的ppa都在[launchpad.net](launchpad.net)中
 * PID Process Identification 进程标识
+* 许可协议,常见的开源许可协议有BSD、MIT、Boost Software License、GPLv2、GPLv3、LGPLv2.1和LGPLv3
