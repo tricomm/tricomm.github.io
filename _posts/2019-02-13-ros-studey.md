@@ -103,6 +103,31 @@ tags: ROS
         
     使用`rosrun [包名] [节点名] __name=[自定义名称]` 自定义节点名,并启动
 
+## ROS launch 批量启动节点
+* `roslaunch [oackage] [filename.launch]`
+* `filename.launch`是一个xml文件结构如下
+```xml
+<!-- launch标签表明这个是一个launch文件 -->
+<launch>
+    <!-- 创建节点分组以ns(namespace)区分-->
+    <!-- 可让两个相同的包节点不起冲突 -->
+    <group ns="turtlesim1">
+        <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+    </group>
+
+    <group ns="turtlesim2">
+        <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+    </group>
+
+    <!--模仿节点 使2模仿1--> 
+    <node pkg="turtlesim" name="mimic" type="mimic">
+        <remap from="input" to="turtlesim1/turtle1"/>
+        <remap from="output" to="turtlesim2/turtle1"/>
+    </node>
+
+</launch>
+
+```
 ## ROS master 帮助节点找到互相
 *`roscore` 启动ROS master
 
@@ -144,7 +169,17 @@ geometry_msgs/Vector3 angular
 * 使用`rosrun [包名] [节点名]`启动
 * `rqt_graph`包的`rqt_graph`节点可以显示系统中节点通讯的结构
 * `rqt_plot`包的`rqt_plot`节点可画出发布数据图
+* `rqt_console`包的`rqt_console`节点是ROS日志框架的一部分,用来显示node节点输出信息
+* `rqt_logger_level`包的`rqt_logger_level`可以修改
+  
+  日志等级说明日志等级由高至低
+  <br>Fatal 毁灭性的
+  <br>Error
+  <br>Warn
+  <br>Info
+  <br>Debug
 
+    
 ## ROS service服务
 * 服务允许节点发送 request 并接收 response
 * `rosservice list`显示活动中的服务列表
