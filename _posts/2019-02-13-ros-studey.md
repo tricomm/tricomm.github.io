@@ -64,6 +64,7 @@ tags: ROS
   
   包应当创建在 workspace/src/目录下
   <br>将会自动生成CmakeLists.txt与package.xml
+  <br>常用的依赖包有roscpp std_msgs rospy
 * package.xml结构
 ```xml   
         <description>The beginner_tutorials package</description>  **描述标签**

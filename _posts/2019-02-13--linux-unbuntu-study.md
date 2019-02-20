@@ -2,8 +2,8 @@
 layout: post
 title:  "linux-unbuntu学习随笔"
 date:   2019-01-26 21:02:46
-categories: ROS
-tags: ROS
+categories: linux
+tags: linux unbuntu
 ---
 # linux-unbuntu 学习随笔
 ## 基本指令
