@@ -6,12 +6,17 @@ categories: linux
 tags: linux unbuntu
 ---
 # linux-unbuntu 学习随笔
-## 基本指令
+## 搜索指令
 * **`less` `文件名`**  用lesss打开文件进行以下操作
     
     **\内容1**  搜索内容1
     
     **:q** 退出
+* `locate [路径/文件名]` 搜索数据库(/var/lib/locatedb)中的内容
+  
+  `updatedb`更新文件数据库
+## 基本指令
+
 * `pwd` 当前路径
 * `echo` `[变量/字符串]`输出内容
 * `cat [文件]`输出文件内容 

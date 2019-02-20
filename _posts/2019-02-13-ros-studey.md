@@ -19,7 +19,7 @@ tags: ROS
   
     只能切换到包含在`ROS_PACKAGE_PATH`环境变量中的包<br>log包保存了ROS的日志文件
 * `rosls [包名]`对这个包名执行ls命令显示其中包含内容
-
+* `roscp [package_name] [file_to_copy_path] [copy_path]`复制文件从一个package到另一个
 ## 建立 catkin workspace工作空间
 * 新建 catkin workspace 
         
@@ -79,6 +79,7 @@ tags: ROS
   
     依赖关系保存在.../包名/package.xml中
 * `rospack depends [包名]`递归检测所有依赖
+* `rosdep install --from-paths /path/to/your/catkin_ws/src --ignore-src` 安装依赖
 
 ## 编译ROS程序包
 * 前置条件是,系统安装了所需依赖,source环境配置(setup)
@@ -88,7 +89,9 @@ tags: ROS
  
     在工作空间目录下,默认编译.../src中代码.
     <br>如该源码不再src中,则应该用`catkin_make --source [my_src]`
-
+* 使用`rosed [package_name] [filename]`编辑包下文件
+  
+  设置`$EDITOR`可修改`rosed`的默认编辑器
 ## ROS Node节点
 * 节点是使用ROS与其他Node通信的可执行文件
 * Node节点可以publish or subscribe Topic主题
@@ -165,6 +168,108 @@ geometry_msgs/Vector3 angular
   float64 z
 
 ```
+## 消息(msg)
+* msg文件是描述ROS中所使用消息类型的文本,会被用来生成不同语言的代码
+* 存放在.../package/msg目录下
+* 可使用的数据类型如下:
+    
+    int8, int16, int32, int64 (plus uint*)
+    <br>float32, float64
+    <br>string
+    <br>time, duration
+    <br>other msg files
+    <br>variable-length array[] 变长数组
+    <br>fixed-length array[C] 定长数组
+    <br>Header 特殊的类型含有时间戳和坐标系信息在std_msgs/msg/Header.msg中定义
+* **配置步骤:**
+* **1.确保package.xml包含,用来转换为语言源码:**
+    ```xml
+    <build_depend>message_generation</build_depend>
+    <exec_depend>message_runtime</exec_depend>
+    ```
+* **2.在CMakeLists.txt中添加对message_generation的构建时依赖**
+  
+    利用find_package函数,在COMPONENTS列表里直接添加 message_generation
+    ```
+    find_package(catkin REQUIRED COMPONENTS
+    roscpp
+    rospy
+    std_msgs
+    message_generation
+    }
+     ```
+
+* **3.运行时依赖**
+    ```
+    catkin_package{
+        ...
+        CATKIN_DEPENDS message_runtime
+        ...
+    }
+* **4.添加msg文件表**
+    ```
+    add_message_files(
+    FILES
+    Message1.msg
+    Message2.msg
+    )
+    ```
+* **5.重新配置**
+    ```
+    generate_messages()
+    需要在添加msg\src文件后进行
+    ```
+* **6.配置消息文件依赖的含有.msg的package**
+    ```
+    generate_messages(
+    DEPENDENCIES
+    std_msgs
+    )
+    ```
+* 重新编译后msg路径下达.msg文件会转会为不同语言的源代码,位置为:
+
+    C+++:~/catkin_ws/devel/include/beginner_tutorials/
+    
+    Python:~/catkin_ws/devel/lib/python2.7/dist-packages/beginner_tutorials/msg 
+    
+    lisp: ~/catkin_ws/devel/share/common-lisp/ros/beginner_tutorials/msg/
+## 服务(srv)
+* 在srv文件夹下.srv文件描述一项服务
+* 有请求与相应两部分构成以---分隔,如:
+
+    ```
+    int64 A
+    int64 B
+    ---
+    int64 Sum
+    ```
+* 配置步骤:
+* **1.在CMakeLists.txt中添加对message_generation的构建时依赖**
+      利用find_package函数,在COMPONENTS列表里直接添加 message_generation
+    ```
+    find_package(catkin REQUIRED COMPONENTS
+    roscpp
+    rospy
+    std_msgs
+    message_generation
+    }
+    ```
+  对message_generation对msg和srv都起作用
+* **2.添加ser文件表**
+  ```
+   add_service_files(
+   FILES
+   Service1.srv
+   Service2.srv
+   )
+  ```
+* **3.重新配置并添加依赖**
+    ```
+    # generate_messages(
+    #   DEPENDENCIES
+    # #  std_msgs  # Or other packages containing      msgs
+    # )
+    ```
 ## rqt 可视化查看节点交互情况
 * rqt 中有许多ROS package 提供了不同的可视化功能
 * 使用`rosrun [包名] [节点名]`启动
