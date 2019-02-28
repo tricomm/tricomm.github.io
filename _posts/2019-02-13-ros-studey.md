@@ -120,8 +120,10 @@ tags: ROS
 <launch>
     <!-- 创建节点分组以ns(namespace)区分-->
     <!-- 可让两个相同的包节点不起冲突 -->
+    <!-- group将设置应用于一组节点 -->
     <group ns="turtlesim1">
         <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+        <!-- type节点可执行文件名 name节点名称 ns命名空间 args节点启动参数-->
     </group>
 
     <group ns="turtlesim2">
