@@ -20,6 +20,8 @@ tags: ROS
     只能切换到包含在`ROS_PACKAGE_PATH`环境变量中的包<br>log包保存了ROS的日志文件
 * `rosls [包名]`对这个包名执行ls命令显示其中包含内容
 * `roscp [package_name] [file_to_copy_path] [copy_path]`复制文件从一个package到另一个
+## 错误检查工具
+* 在/opt/ros/kinetic目录下用`roswtf`工具自检错误
 ## 建立 catkin workspace工作空间
 * 新建 catkin workspace 
         
@@ -42,6 +44,9 @@ tags: ROS
             
         $ source devel/setup.bash
     进行初始化(如将catkin包加入ROS_PACKAGE_PATH环境变量)
+## ROS工作环境脚本
+* 全局环境位于`/opt/ros/kinetic/setup.bash`
+* 每个工作空间环境在`空间目录/deve/setup.bash`
 ## 建立ROS package程序包
 * 程序包组成结构
   
@@ -135,7 +140,7 @@ tags: ROS
 ## ROS master 帮助节点找到互相
 *`roscore` 启动ROS master
 
-## ROS Topics主题
+## ROS Topics主题(话题)
 * ROS节点通过主题相互通信(主题即是订阅与发布的内容)
 * `rostopic` 显示topic主题的信息
     
@@ -168,6 +173,17 @@ geometry_msgs/Vector3 angular
   float64 z
 
 ```
+
+##主题录制与回放
+* `rosbag record -a` 录制当前发布的所有话题
+
+    rostopic list -v 可查看当前发布的所有话题
+* `rosbag info [bagfile]` 查看录制文件信息
+* `rosbag play [bagfile]` 公告后开始回放bagfile内容
+  <br>`-d` 设置等待时间
+  <br>`-r` 设置发布速率
+  <br>`-O [outfile]`设置输出文件
+  <br>`rosbagrecord [topicname]`设置录制话题
 ## 消息(msg)
 * msg文件是描述ROS中所使用消息类型的文本,会被用来生成不同语言的代码
 * 存放在.../package/msg目录下
@@ -186,6 +202,11 @@ geometry_msgs/Vector3 angular
     ```xml
     <build_depend>message_generation</build_depend>
     <exec_depend>message_runtime</exec_depend>
+    ```
+* **1.5 若有依赖包在package.xml中添加**
+    ```xml
+    <build_depend>std_msgs</build_depend>
+    <build_depend>actionlib_msgs</build_depend>
     ```
 * **2.在CMakeLists.txt中添加对message_generation的构建时依赖**
   
@@ -277,14 +298,14 @@ geometry_msgs/Vector3 angular
 * `rqt_plot`包的`rqt_plot`节点可画出发布数据图
 * `rqt_console`包的`rqt_console`节点是ROS日志框架的一部分,用来显示node节点输出信息
 * `rqt_logger_level`包的`rqt_logger_level`可以修改
-  
+
   日志等级说明日志等级由高至低
   <br>Fatal 毁灭性的
   <br>Error
   <br>Warn
   <br>Info
   <br>Debug
-
+* `rqt_tf_tree`包中的`rqt_tf_tree`节点可以显示由tf广播的不同框架
     
 ## ROS service服务
 * 服务允许节点发送 request 并接收 response
