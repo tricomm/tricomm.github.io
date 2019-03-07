@@ -24,7 +24,7 @@ mathjax: true
   6. $X^W_{(k,i)}$表示在$\{W_k\}$中的点$i\in P_k$的坐标coordinates
   7. P^ 是laser每次扫描映射到$\{L\}$中的点
   8. CW顺时针,CCW逆时针
-  9. $\epsilon_{k}$为k时的边缘点集合
+  9. $E_{k}$为k时的边缘点集合
   10. $H_{k}$为k时的平面点集合
 * 术语
   1. 6-DOF: 6自由度
@@ -63,15 +63,15 @@ mathjax: true
 
 * $P_k$被重新投影到时间戳$t_{k+1}$下记为$\vec{P_k}$在K+1期间与$P_{k+1}$一同估计激光雷达运动
 <br>![](https://raw.githubusercontent.com/tricomm/ImageForBlog/master/2019/03/05/Ptime.png)
-<br>找$\vec{P_k}$与$\epsilon_{k+1}$和$H_{k+1}$的对应关系
+<br>找$\vec{P_k}$与$E_{k+1}$和$H_{k+1}$的对应关系
 <br>$t_{k+1}$时$P_{k+1}$是空集
 
-* 第K+1次迭代的开始会利用第K次的6-DOF运动估计将$\epsilon_{k+1}$和$H_{k+1}$重新投影为$\vec{\epsilon_{k+1}}$和$\vec{H_{k+1}}$(重投影集)
-<br>$\vec{\epsilon_{k+1}}$和$\vec{H_{k+1}}$(重投影集)中的每一个点将在$\vec{P_k}$寻找附近的点
+* 第K+1次迭代的开始会利用第K次的6-DOF运动估计将$E_{k+1}$和$H_{k+1}$重新投影为$\vec{E_{k+1}}$和$\vec{H_{k+1}}$(重投影集)
+<br>$\vec{E_{k+1}}$和$\vec{H_{k+1}}$(重投影集)中的每一个点将在$\vec{P_k}$寻找附近的点
 <br>注:$\vec{P_k}$存在一个3d-tree内以便快速查找
 
-* the procedure of finding an edge line as the correspondence of an edge point(特征点) in $\vec{\epsilon_{k+1}}$(a).
-    1. $i\in \vec{\epsilon_{k+1}}$ ,$j\in \vec{P_k
+* the procedure of finding an edge line as the correspondence of an edge point(特征点) in $\vec{E_{k+1}}$(a).
+    1. $i\in \vec{E_{k+1}}$ ,$j\in \vec{P_k
 }$ , $j$是$i$的最临近点
     2.  let l be the closest neighbor of i in the two consecutive scans to the scan of j.(j, l)`(边缘线edge line)` forms the correspondence of i`(边缘点edge point)`. 
     3. 前置条件: scan cannot contain more than one points from the same edge line.
@@ -86,7 +86,7 @@ mathjax: true
     <br>![](https://raw.githubusercontent.com/tricomm/ImageForBlog/master/2019/03/06/edge_line.png)
     <br>注:桔黄色线代表对j的一次扫描,蓝色线代表两次连续扫描
 * 计算特征点[i](edge point)到对应的edge line[j,l]的距离
-  距离$d\epsilon$满足下(2)式,将通过最小化最小化特征点总距离来恢复激光雷达运动
+  距离$dE$满足下(2)式,将通过最小化最小化特征点总距离来恢复激光雷达运动
 <br>![](https://raw.githubusercontent.com/tricomm/ImageForBlog/master/2019/03/06/p2.png)
 <br>分子为$\vec{ji},\vec{li}$构成平行四边型面积,是三角形$ijl$的两倍.
 * 点到平面距离满足下(3)式
@@ -101,15 +101,15 @@ mathjax: true
   4. $\theta_x,\theta_y,\theta_z$是旋转角度,符合右手定则
   5. $i,i\in P_{k+1}$ , $t_i$是i的时间戳
   6. $T^L_{(k+1,i)}$be  the  pose  transform  between$[t_{k+1}, t_i]$
-  7. $\Epsilon_{k+1},H_{k+1}$是从$P_{k+1}$中提取的边缘点及平面点集合
-  8. $\vec{\Epsilon_{k+1}},\vec{H_{k+1}}$是重新投影到开始时间戳,如[t,t+1]扫描完了投影到t时间点
+  7. $E_{k+1},H_{k+1}$是从$P_{k+1}$中提取的边缘点及平面点集合
+  8. $\vec{E_{k+1}},\vec{H_{k+1}}$是重新投影到开始时间戳,如[t,t+1]扫描完了投影到t时间点
 
 * $T^L_{(k+1,i)}$可以通过$T^L_{k+1}的线性插值来计算,公式(4)如下:
 <br>![](https://raw.githubusercontent.com/tricomm/ImageForBlog/master/2019/03/06/p4.png)
-* 应用(4)可以建立$\Epsilon_{k+1},H_{k+1}$到$\vec{\Epsilon_{k+1}},\vec{H_{k+1}}$的几何变换公式(5)如下:
+* 应用(4)可以建立$E_{k+1},H_{k+1}$到$\vec{E_{k+1}},\vec{H_{k+1}}$的几何变换公式(5)如下:
 <br>![](https://raw.githubusercontent.com/tricomm/ImageForBlog/master/2019/03/06/p5.png)
 <br>注:
-  1. $X^L_{(k+1,i)}$是$i$在$\Epsilon_{k+1}$或$H_{k+1}$中的坐标 , $\vec{X^L_{(k+1,i)}}$是对应点在$\vec{\Epsilon_{k+1}},\vec{H_{k+1}}$中的坐标
+  1. $X^L_{(k+1,i)}$是$i$在$E_{k+1}$或$H_{k+1}$中的坐标 , $\vec{X^L_{(k+1,i)}}$是对应点在$\vec{E_{k+1}},\vec{H_{k+1}}$中的坐标
   2. $i$是过程中的一个点
   3. $T^L_{k+1}(1:3)$是指$T^L_{k+1}$矩阵的前三行
   4. R是Rodrigues公式定义的旋转矩阵
