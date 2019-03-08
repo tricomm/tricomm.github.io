@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "协防差,协防差矩阵,特征值,特征向量,pca应用的学习"
+date:   2019-03-07 21:02:46
+categories: 协防差矩阵
+tags: math 协防差 协防差矩阵 pca
+mathjax: false
+---
 # [转]浅谈协防差矩阵
 http://pinkyjie.com/2010/08/31/covariance/
 http://www.cnblogs.com/chaosimple/p/3182157.html

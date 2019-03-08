@@ -38,7 +38,19 @@ tags: c++ vscode
 参数说明
 * “includePath”：所有头文件路径
 * "compilerPath":编译器执行文件目录,Mac的usr/bin不允许删写,usr/local/bin是放终端中可直接运行的程序的(环境变量指向这里).`(实验中该属性删掉并没有影响,所以说明编译器还是用的text.json里的命令)`
-  
+
+常用includePath
+* ROS在unbuntu下头文件目录
+ <br> "/opt/ros/kinetic/include",
+* ROS工作空间头文件信息(比如自动生成的消息类型)
+<br>"/home/zhangsiyu/catkin_ws/src/loam_velodyne`(package name)`/include"
+* 公共头文件
+<br>"/usr/include"
+* gcc头文件
+<br>"/usr/bin/gcc" 
+                
+
+
 # 3.编译用配置文件(task.json)
 * 打开控制面板command palette(command+shift+P),选择`Tasks:Configure Tasks`->`Create tasks.json file from templates`->`Other`将会自动生成task.json在打开目录下.
 

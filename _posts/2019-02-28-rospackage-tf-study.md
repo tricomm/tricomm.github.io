@@ -11,7 +11,7 @@ tags: ROS tf
 ## tf中的工具
 * `tf`包中的`view_frames`节点可以绘制一个坐标链接图(带帧数)
 * `rqt_tf_tree`包中的`rqt_tf_tree`节点可以显示由tf广播的不同框架
-* `tf`包中的`tf_echo [reference_frame] [target_frame]`可查看一个框架相对于另一框架的位置`
+* `tf`包中的`tf_echo [reference_frame] [target_frame]`可查看target frame目标坐标系在reference frame参考坐标系中的位置`
 
 ## C++ 用订阅器subscribe创建坐标系广播链接
 1. 在package下src中加入broadcastername.cpp
