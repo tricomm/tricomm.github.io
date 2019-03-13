@@ -93,7 +93,10 @@ tags: ROS
 * `catkin_make` cmake+make 生成makefile.txt并编译
  
     在工作空间目录下,默认编译.../src中代码.
-    <br>如该源码不再src中,则应该用`catkin_make --source [my_src]`
+
+    如该源码不再src中,则应该用`catkin_make --source [my_src]`
+
+    输出编译信息到/build/c_cpp_properties.json `catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes`
 * 使用`rosed [package_name] [filename]`编辑包下文件
   
   设置`$EDITOR`可修改`rosed`的默认编辑器
