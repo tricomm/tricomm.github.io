@@ -13,8 +13,10 @@ tags: ROS tf
 * `rqt_tf_tree`包中的`rqt_tf_tree`节点可以显示由tf广播的不同框架
 * `tf`包中的`tf_echo [reference_frame] [target_frame]`可查看target frame目标坐标系在reference frame参考坐标系中的位置`
   
-## tf应用 
+## tf配置
 * 在许多与pose姿态有关的消息类型中.hearer.frame_id可填写对应的tf坐标系
+* package.xml配置三个tf依赖build_depend,build_export_depend,exec_depend
+* CMakeLists.txt中配置 find_package
 
 ## C++ 用订阅器subscribe创建坐标系广播链接broadcaster
 1. 在package下src中加入broadcastername.cpp

@@ -25,4 +25,12 @@ tags: ROS 串口 autolabor
         <br>`2`减线速度
         <br>`3`角速度增加
         <br>`4`角速度减少
-   
+## 网络连接
+1. 开启热点 
+2. ssh链接小车
+<br>10.42.0.1
+3. 配置文件
+     ```
+     export ROS_MASTER_URI=http://10.42.0.1:11311
+     export ROS_IP=10.42.0.138
+     ```
