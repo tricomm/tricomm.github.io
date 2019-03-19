@@ -116,7 +116,7 @@ tags: ROS
     使用`rosrun [包名] [节点名] __name=[自定义名称]` 自定义节点名,并启动
 
 ## ROS launch 批量启动节点
-* `roslaunch [oackage] [filename.launch]`
+* `roslaunch [package] [filename.launch]`
 * `filename.launch`是一个xml文件结构如下
 ```xml
 <!-- launch标签表明这个是一个launch文件 -->
@@ -141,6 +141,29 @@ tags: ROS
 
 </launch>
 
+```
+* 设置参数(setting parameters)
+```xml
+<launch>
+  <param name="somestring1" value="bar" />
+  <!-- force to string instead of integer -->
+  <param name="somestring2" value="10" type="str" />
+
+  <param name="someinteger1" value="1" type="int" />
+  <param name="someinteger2" value="2" />
+
+  <param name="somefloat1" value="3.14159" type="double" />
+  <param name="somefloat2" value="3.0" />
+
+  <!-- you can set parameters in child namespaces -->
+  <param name="wg/childparam" value="a child namespace parameter" />
+
+  <!-- upload the contents of a file to the server -->
+  <param name="configfile" textfile="$(find roslaunch)/example.xml" />
+  <!-- upload the contents of a file as base64 binary to the server -->
+  <param name="binaryfile" binfile="$(find roslaunch)/example.xml" />
+
+</launch>
 ```
 ## ROS master 帮助节点找到互相
 *`roscore` 启动ROS master
