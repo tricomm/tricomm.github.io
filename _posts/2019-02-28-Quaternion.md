@@ -27,7 +27,7 @@ mathjax: true
 
 2. $(X_0,Y_0,Z_0)为转轴向量$
    <br>$\alpha 为旋转角度$
-   <br>则: $q=cos(\alpha /2)+sin(\aleph/2)(X_0i+Y_0j+Z_0k)$
+   <br>则: $q=cos(\alpha /2)+sin(\alpha/2)(X_0i+Y_0j+Z_0k)$
 3. $f(p) = qpq^{-1}为旋转后钢体方向向量$
 ## 旋转符合右手定理
 * 大拇指为转轴向量
