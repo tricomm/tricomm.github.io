@@ -25,3 +25,16 @@ tags: words
 16. command
 17. ordinary
 18. authority
+# 15th April
+1. absence
+2. perseverance
+3. presence of mind
+4. regret
+5. prodigy
+6. salary
+7. seal
+8. lottery
+9. casino
+10. gambling
+11. toast
+12. cereal
