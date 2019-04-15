@@ -25,16 +25,34 @@ tags: words
 16. command
 17. ordinary
 18. authority
-# 15th April
+    
+## 11th Aprial
+1. president
+2. prime minister
+3. chairman
+4. chore
+5. present
+6. vowel
+7. `grab`
+8. ferry
+   
+## 15th April
 1. absence
 2. perseverance
 3. presence of mind
-4. regret
-5. prodigy
-6. salary
-7. seal
-8. lottery
-9. casino
-10. gambling
-11. toast
-12. cereal
+4. `regret`
+5. `prodigy`
+6. seal
+7. lottery
+8. casino
+9.  gambling
+10. toast
+11. cereal
+12. `deprive`
+13. diet
+14. insist
+15. convenient
+16. salary
+17. variety
+18. crowd
+19. cafeteria
