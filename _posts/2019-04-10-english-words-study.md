@@ -56,3 +56,17 @@ tags: words
 17. variety
 18. crowd
 19. cafeteria
+
+## 29th April
+1. contribution
+2. lottery
+3. gamble
+4. temptation
+5. efficient
+6. administer
+7. advertisement
+8. bad worse worst
+9. recognize
+10. significant
+11. anniversary
+12. occasion
